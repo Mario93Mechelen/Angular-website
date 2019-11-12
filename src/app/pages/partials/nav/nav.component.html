@@ -1,0 +1,15 @@
+<header>
+    <div class="hamburger" (click)="showMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+<nav>
+    <ul class="{{menuIsVisible ? 'visible' : null}}">
+        <li><a class="{{active === 'home' ? 'active' : null}} {{hovered === 'home' ? 'hovered' : null}}" (click)="handleClick($event)" (mouseover)="handleHover($event)" (mouseleave)="resetHover()" href="/#home">Home</a></li>
+        <li><a class="{{active === 'skills' ? 'active' : null}} {{hovered === 'skills' ? 'hovered' : null}}"  (click)="handleClick($event)" (mouseover)="handleHover($event)" (mouseleave)="resetHover()" href="/#skills">Skills</a></li>
+        <li><a class="{{active === 'work' ? 'active' : null}} {{hovered === 'work' ? 'hovered' : null}}"  (click)="handleClick($event)" (mouseover)="handleHover($event)" (mouseleave)="resetHover()" href="/#work">Work</a></li>
+        <li><a class="{{active === 'contact' ? 'active' : null}} {{hovered === 'contact' ? 'hovered' : null}}"  (click)="handleClick($event)" (mouseover)="handleHover($event)" (mouseleave)="resetHover()" href="/#contact">Contact</a></li>
+    </ul>
+</nav>
+</header>

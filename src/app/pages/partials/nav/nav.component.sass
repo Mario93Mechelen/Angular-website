@@ -1,0 +1,62 @@
+nav
+    width: 100%
+    background: #262626
+    position: relative
+    height: 80px
+
+nav ul
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    margin: 0
+    padding: 0 20px
+    height: calc(100vh - 80px)
+    position: absolute
+    top: -1000px
+    background: #262626
+    width: calc(100% - 40px)
+    transition: top 0.5s ease-in-out
+    z-index: 1
+
+nav ul.visible
+    top: 80px
+
+nav ul li
+    list-style: none
+    width: 100%
+    display: block
+
+nav ul li a
+    display: block
+    text-decoration: none
+    color: white
+    border-radius: 5px
+    padding: 8px 24px
+    text-align: center
+    transition: background 0.5s ease-in-out, color 0.5s ease-in-out
+
+nav ul li a.active
+    border: 3px solid white
+
+nav ul li a.hovered
+    background: white
+    color: #262626
+
+div.hamburger
+    position: absolute
+    width: 30px
+    height: 25px
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    z-index:10
+    right: 10px
+    top: 27px
+    cursor: pointer
+
+div.hamburger div
+    height: 4px
+    width: 100%
+    background: white
