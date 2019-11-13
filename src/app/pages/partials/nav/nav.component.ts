@@ -11,16 +11,16 @@ export class NavComponent implements OnInit {
   @Input() menuIsVisible:boolean = false;
 
   ngOnInit() {
-    this.active = window.location.href.substring(window.location.href.indexOf('#')+1,window.location.href.length);
+    this.active = window.location.href.substring(window.location.href.lastIndexOf('/')+1,window.location.href.length);
   }
 
   public handleClick = (e) => {
-    this.active = e.target.href.substring(e.target.href.indexOf('#')+1,e.target.href.length);
+    this.active = e.target.href.substring(e.target.href.lastIndexOf('/')+1,e.target.href.length);
     this.menuIsVisible = !this.menuIsVisible
   }
   
   public handleHover = (e) => {
-    this.hovered = e.target.href.substring(e.target.href.indexOf('#')+1,e.target.href.length);
+    this.hovered = e.target.href.substring(e.target.href.lastIndexOf('/')+1,e.target.href.length);
   }
 
   public resetHover = () => {

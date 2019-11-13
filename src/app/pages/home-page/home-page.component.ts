@@ -9,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HomePageComponent implements OnInit {
 
   @Input() buttonText:string = "Learn more"
-  @Input() buttonLink: string = ""
+  @Input() buttonLink: string = "/skills"
 
   constructor() { }
 

@@ -1,7 +1,14 @@
+@import 'src/app/app.component.sass' 
+
 a.button 
-    background: #dc493a
+    background: $red
     padding: 8px 24px
     text-align: center
     border-radius: 5px
     color: white
     text-decoration: none
+    transition: background 0.5s ease-in-out
+    display: block
+
+a.button:hover
+    background: $darkRed

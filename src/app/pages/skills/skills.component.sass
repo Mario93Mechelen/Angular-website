@@ -1,0 +1,80 @@
+@import 'src/app/app.component.sass'
+
+section#skills div.skill-wrapper
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    margin-top: 100px
+    margin-bottom: 100px
+    align-items: stretch
+
+section#skills div.skill-wrapper app-single-skill
+    width: 100%
+    margin-top: 20px
+
+
+section#skills div.skill-wrapper div.input-container
+    width: 90% 
+    display: flex
+    margin-left: 5%
+
+.popup-form
+    position: fixed
+    height: calc(100vh - 60px)
+    width: 100%
+    background: rgba(0,0,0,0.9)
+    z-index: 2
+    top: 60px
+    overflow: scroll
+
+.popup-form form .form-group h2
+    color: white
+
+.popup-form form
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    width: 80%
+    margin: auto
+    height: 100%
+    padding: 30px 0
+
+@media(min-width: $min-width)
+    section#skills div.skill-wrapper div.input-container
+        margin-left: 0
+
+    section#skills div.skill-wrapper
+        flex-direction: row
+        flex-wrap: wrap
+        width: 90%
+        margin-left: auto
+        margin-right: auto
+    
+    section#skills div.skill-wrapper app-single-skill
+        width: 48%
+    
+    .popup-form
+        display: flex
+        align-items: center
+        justify-content: center
+
+    .popup-form form
+        flex-direction: row
+        flex-wrap: wrap
+        justify-content: space-between
+        align-items: flex-start
+        height: 650px
+        max-width: $min-width
+
+    .popup-form form .form-group
+        width: 48%
+    
+    .popup-form form .form-group:nth-last-child(2), .popup-form form .form-group:first-child
+        width: 100%
+
+@media(min-width: $medium-width)
+    section#skills div.skill-wrapper app-single-skill
+        width: calc(33% - 10px)
+        justify-self: stretch

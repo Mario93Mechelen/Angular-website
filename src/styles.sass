@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+$black: #262626
+$red: #dc493a
+$darkRed: #ce2e1c
+$min-width: 768px
+$medium-width: 1042px
 
 html, body
     width: 100%
@@ -9,9 +14,61 @@ html, body
 h1, h2, h3, h4
     font-family: 'Roboto', sans-serif
 
+h1
+    font-size: 2em
+
+h2
+    font-size: 1.8em
+
+h3
+    font-size: 1.4em
+
+h4
+    font-size: 1.1em
+
+p, a
+    font-size: 0.9em
+    line-height: 1.4em
+    letter-spacing: 0.06em
+
 p, a
     font-family: 'Open Sans', sans-serif
 
 section
-    height: calc(100vh - 80px)
+    height: calc(100vh - 60px)
+    top: 60px
     position: relative
+    z-index: 0
+
+span.search
+    background: #d7dedc
+    border-radius: 5px
+    display: flex
+    align-items: center
+    justify-content: center
+
+span.search i
+    margin-left: 5px
+
+input[type="text"], textarea
+    padding: 10px 8px
+    border: 0
+    border-radius: 5px
+    background: #d7dedc
+    font-family: 'Roboto', sans-serif
+    position: relative
+
+.form-group
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    width: 100%
+
+.form-group:last-child
+    margin-top: 30px
+
+.form-group label
+    color: white
+    font-family: 'Open Sans', sans-serif
+    margin-top: 30px
+    margin-bottom: 15px

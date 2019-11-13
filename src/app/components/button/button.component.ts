@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -10,10 +10,19 @@ export class ButtonComponent implements OnInit {
 
   @Input() buttonText: string;
   @Input() buttonLink: string;
+  @Input() buttonShouldReturnValue?: boolean;
+  @Output() handleClick: EventEmitter<string> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public returnLink = (event, isReturning) => {
+    if(isReturning){
+      event.preventDefault();
+      this.handleClick.emit(event.target.href);
+    }
   }
 
 }

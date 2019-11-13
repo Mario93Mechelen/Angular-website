@@ -1,5 +1,82 @@
+@import 'src/app/app.component.sass' 
 section#home
     background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1) ), url('../../../assets/images/mario.jpg')
     background-position: center
     background-size: cover
     background-repeat: no-repeat
+
+section#home .text-wrapper
+    position: absolute
+    width: 90%
+    margin: auto
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    
+section#home .text-wrapper h1, section#home .text-wrapper p
+    color: white
+
+section#home .text-wrapper h1
+    overflow: hidden 
+    border-right: .15em solid $red 
+    white-space: nowrap 
+    margin: 0 auto 
+    letter-spacing: .15em 
+    margin-bottom: 20px
+    animation: typing 2.5s steps(28, end), blink-caret .75s step-end infinite
+
+section#home .text-wrapper a.button
+    transition: all 0.5s ease-in-out
+
+section#home .text-wrapper .text
+    opacity: 0
+    margin-left: -20px
+    margin-top: -20px
+    animation-name: appear
+    animation-duration: 1s
+    animation-timing-function: ease-in-out
+    animation-delay: 2.5s
+    animation-fill-mode: forwards
+
+section#home .text-wrapper .text p:last-child
+    margin-bottom: 30px
+
+section#home .text-wrapper h1 span, section#home .text-wrapper p span
+    color: $red
+
+/* The typing effect */
+@keyframes typing 
+  from  
+    width: 0 
+  to  
+    width: 255px
+
+
+/* The typewriter cursor effect */
+@keyframes blink-caret 
+  from, to 
+     border-color: transparent 
+  50%  
+    border-color: $red
+
+@keyframes appear
+    from
+        opacity: 0 
+        margin-left: -20px 
+        margin-top: -20px
+    to
+        opacity: 1 
+        margin-left:0
+        margin-top: 0
+
+@media(min-width: $min-width)
+    section#home
+        background-position:  10% 10%
+        
+    section#home .text-wrapper .text
+        max-width: 500px

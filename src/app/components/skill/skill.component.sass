@@ -1,0 +1,59 @@
+@import 'src/app/app.component.sass' 
+
+div.skill
+    width: 90%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    border-radius: 5px
+    background: $black
+    color: white
+    padding: 50px 0
+    margin: auto
+
+div.skill div.image-wrapper
+    width: 90%
+    height: 100px
+    position: relative
+    padding: 20px 0
+    background: white
+    border-radius: 5px
+
+div.skill div.image-wrapper img
+    position: absolute
+    width: 90%
+    height: calc(100% - 40px)
+    object-fit: contain
+    object-position: center
+    margin-left: 5%
+
+div.skill div.description-wrapper
+    display: flex
+    flex-direction: column 
+    justify-content: center
+    align-items: center
+    width: 90%
+
+div.skill div.description-wrapper h2
+    margin-top: 20px
+    margin-bottom: 30px
+
+div.skill div.description-wrapper p
+    margin-bottom: 40px
+
+@media(min-width: $min-width)
+    div.skill
+        width: 100%
+        height: 100%
+        padding: 0
+        justify-content: flex-start
+    
+    div.skill.contact
+        height: unset
+    
+    div.skill .image-wrapper
+        margin-top: 50px
+
+    div.skill .description-wrapper
+        margin-bottom: 50px
