@@ -1,20 +1,70 @@
 <section id="skills">
-    <div id="container">
-        <div class="skill-wrapper">
-            <div class="input-container"><span class="search"><i class="fas fa-search"></i><input type="text" (keyup.enter)="filterSkills($event.target.value)"/></span></div>
-            <app-single-skill *ngFor="let skill of skills.value" [skill]="skill" (returnSkill)="getSelectedTarget($event)"></app-single-skill>
-        </div>
+  <div id="container">
+    <div class="skill-wrapper">
+      <div class="input-container">
+        <span class="search"
+          ><i class="fas fa-search"></i><input #searchInput type="text"
+        /></span>
+      </div>
+      <app-single-skill
+        *ngFor="let skill of skills.value"
+        [skill]="skill"
+        (returnSkill)="getSelectedTarget($event)"
+      ></app-single-skill>
     </div>
+  </div>
 </section>
 <div class="popup-form" *ngIf="showForm" (click)="closeModal()">
-    <form>
-        <div class="form-group" (click)="$event.stopPropagation()"><h2>You have a question about {{currentTarget}}</h2></div>
-        <div class="form-group" (click)="$event.stopPropagation()"><label for="firstname">Firstname</label><input id="fistname" name="firstname" type="text"></div>
-        <div class="form-group" (click)="$event.stopPropagation()"><label for="lastname">Lastname</label><input id="lastname" type="text"></div>
-        <div class="form-group" (click)="$event.stopPropagation()"><label for="email">Email</label><input id="email" type="text"></div>
-        <div class="form-group" (click)="$event.stopPropagation()"><label for="phone">Phone</label><input id="phone" type="text"></div>
-        <div class="form-group" (click)="$event.stopPropagation()"><label for="company">Company</label><input id="company" type="text"></div>
-        <div class="form-group" (click)="$event.stopPropagation()"><label for="message">Message</label><textarea id="message" name="message" cols="30" rows="10"></textarea></div>
-        <div class="form-group" (click)="$event.stopPropagation()"><app-button [buttonText]="'Send'" [buttonLink]="''"></app-button></div>
-    </form>
+  <h1 *ngIf="errorInService">
+    ThE MaIl SeRvIcE SeEmS To Be CuRrEnTlY UnAvAiLaBlE
+  </h1>
+  <form [formGroup]="messageForm">
+    <div class="form-group" (click)="$event.stopPropagation()">
+      <h2>You have a question about {{ currentTarget }}</h2>
+    </div>
+    <input type="hidden" formControlName="subject" />
+    <div class="form-group" (click)="$event.stopPropagation()">
+      <label for="firstname">Firstname</label
+      ><input
+        id="fistname"
+        name="firstname"
+        formControlName="firstname"
+        type="text"
+      />
+    </div>
+    <div class="form-group" (click)="$event.stopPropagation()">
+      <label for="lastname">Lastname</label
+      ><input id="lastname" formControlName="lastname" type="text" />
+    </div>
+    <div class="form-group" (click)="$event.stopPropagation()">
+      <label for="email">Email</label
+      ><input id="email" formControlName="email" type="text" />
+    </div>
+    <div class="form-group" (click)="$event.stopPropagation()">
+      <label for="phone">Phone</label
+      ><input id="phone" formControlName="phone" type="text" />
+    </div>
+    <div class="form-group" (click)="$event.stopPropagation()">
+      <label for="company">Company</label
+      ><input id="company" formControlName="company" type="text" />
+    </div>
+    <div class="form-group" (click)="$event.stopPropagation()">
+      <label for="message">Message</label
+      ><textarea
+        id="message"
+        formControlName="message"
+        name="message"
+        cols="30"
+        rows="10"
+      ></textarea>
+    </div>
+    <div class="form-group" (click)="$event.stopPropagation()">
+      <app-button
+        [buttonText]="'Send'"
+        [buttonLink]="''"
+        [buttonShouldReturnValue]="true"
+        (handleClick)="submitForm($event)"
+      ></app-button>
+    </div>
+  </form>
 </div>
