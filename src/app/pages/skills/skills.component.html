@@ -7,7 +7,7 @@
         /></span>
       </div>
       <app-single-skill
-        *ngFor="let skill of skills.value"
+        *ngFor="let skill of skillsToShow"
         [skill]="skill"
         (returnSkill)="getSelectedTarget($event)"
       ></app-single-skill>

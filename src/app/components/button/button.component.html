@@ -1,1 +1,7 @@
-<a href="{{buttonLink}}" class="button" (click)="returnLink($event, buttonShouldReturnValue)">{{buttonText}}</a>
+<a
+  href="{{ buttonLink }}"
+  class="button"
+  (click)="returnLink($event, buttonShouldReturnValue)"
+  target="{{ opensNewPage ? '_blank' : null }}"
+  >{{ buttonText }}</a
+>

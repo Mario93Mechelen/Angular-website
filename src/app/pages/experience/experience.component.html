@@ -1,0 +1,50 @@
+<section id="experience">
+  <div id="container">
+    <div class="wrapper">
+      <div
+        class="experience-holder"
+        *ngFor="let experience of experiencesToShow"
+      >
+        <div class="experience">
+          <h2>{{ experience.title }}</h2>
+          <p class="date">{{ experience.date }}</p>
+          <p>
+            {{ experience.description }}
+          </p>
+          <app-button
+            *ngIf="experience.siteLink"
+            [buttonLink]="experience.siteLink"
+            [buttonText]="'visit website'"
+            [opensNewPage]="true"
+            [buttonShouldReturnValue]="false"
+          ></app-button>
+        </div>
+        <ng-template [ngIf]="experience.projects.length > 0">
+          <ng-template ngFor let-project [ngForOf]="experience.projects">
+            <div class="projects">
+              <div class="single-project">
+                <h3>{{ project.title }}</h3>
+                <p class="date">{{ project.date }}</p>
+                <p>
+                  {{ project.description }}
+                </p>
+                <app-button
+                  *ngIf="project.projectLink"
+                  [buttonLink]="project.projectLink"
+                  [buttonText]="'visit website'"
+                  [opensNewPage]="true"
+                  [buttonShouldReturnValue]="false"
+                ></app-button>
+              </div>
+            </div>
+            <div class="skill-holder" *ngIf="project.skills">
+              <div class="skill" *ngFor="let skill of project.skills">
+                <p>{{ skill }}</p>
+              </div>
+            </div>
+          </ng-template>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</section>

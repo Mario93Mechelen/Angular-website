@@ -1,0 +1,59 @@
+<section id="contact">
+  <div id="container">
+    <div class="form-holder">
+      <form [formGroup]="messageForm">
+        <div class="form-group" (click)="$event.stopPropagation()">
+          <h2>If you have any question</h2>
+          <p>Please leave me a message.</p>
+        </div>
+        <input type="hidden" formControlName="subject" />
+        <div class="form-group" (click)="$event.stopPropagation()">
+          <label for="firstname">Firstname</label
+          ><input
+            id="fistname"
+            name="firstname"
+            formControlName="firstname"
+            type="text"
+          />
+        </div>
+        <div class="form-group" (click)="$event.stopPropagation()">
+          <label for="lastname">Lastname</label
+          ><input id="lastname" formControlName="lastname" type="text" />
+        </div>
+        <div class="form-group" (click)="$event.stopPropagation()">
+          <label for="email">Email</label
+          ><input id="email" formControlName="email" type="text" />
+        </div>
+        <div class="form-group" (click)="$event.stopPropagation()">
+          <label for="phone">Phone</label
+          ><input id="phone" formControlName="phone" type="text" />
+        </div>
+        <div class="form-group" (click)="$event.stopPropagation()">
+          <label for="company">Company</label
+          ><input id="company" formControlName="company" type="text" />
+        </div>
+        <div class="form-group" (click)="$event.stopPropagation()">
+          <label for="message">Message</label
+          ><textarea
+            id="message"
+            formControlName="message"
+            name="message"
+            cols="30"
+            rows="10"
+          ></textarea>
+        </div>
+        <div class="form-group" (click)="$event.stopPropagation()">
+          <app-button
+            [buttonText]="'Send'"
+            [buttonLink]="''"
+            [buttonShouldReturnValue]="true"
+            (handleClick)="submitForm($event)"
+          ></app-button>
+          <h1 *ngIf="messageSent" style="color: white; margin-top: 10px">
+            Your message was received successfully.
+          </h1>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

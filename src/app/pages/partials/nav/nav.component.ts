@@ -1,4 +1,6 @@
+import { routes } from "./../../../app-routing.module";
 import { Component, OnInit, Input } from "@angular/core";
+import { Route } from "@angular/compiler/src/core";
 
 @Component({
   selector: "app-nav",
@@ -6,6 +8,8 @@ import { Component, OnInit, Input } from "@angular/core";
   styleUrls: ["./nav.component.sass"]
 })
 export class NavComponent implements OnInit {
+  public routes: Route[] = routes;
+  public placeLogo: number = 1;
   @Input() active: string = "home";
   @Input() hovered: string;
   @Input() menuIsVisible: boolean = false;
@@ -18,11 +22,12 @@ export class NavComponent implements OnInit {
   }
 
   public handleClick = e => {
+    e.preventDefault();
     this.active = e.target.href.substring(
       e.target.href.lastIndexOf("/") + 1,
       e.target.href.length
     );
-    this.menuIsVisible = !this.menuIsVisible;
+    this.menuIsVisible = false;
   };
 
   public handleHover = e => {

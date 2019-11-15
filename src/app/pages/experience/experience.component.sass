@@ -1,0 +1,74 @@
+@import 'src/app/app.component.sass'
+
+section#experience div.wrapper
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    margin-top: 100px
+    margin-bottom: 100px
+    align-items: stretch
+
+section#experience div.wrapper div.experience-holder
+    width: 90%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    border-radius: 5px
+    background: $black
+    color: white
+    padding: 40px 0
+    margin: auto
+    margin-bottom: 30px
+
+section#experience div.wrapper div.experience-holder h2, section#experience div.wrapper div.experience-holder h3
+    color: $red
+    margin-bottom: 20px
+
+section#experience div.wrapper div.experience-holder p.date
+    font-size: 0.6em
+    margin-bottom: 10px
+
+section#experience div.wrapper div.experience-holder div.experience app-button, section#experience div.wrapper div.experience-holder div.projects div.single-project app-button
+    margin-top: 30px
+    display: flex
+
+section#experience div.wrapper div.experience-holder div.experience, section#experience div.wrapper div.experience-holder div.projects, section#experience div.wrapper div.experience-holder div.skill-holder
+    width: 90%
+    position: relative
+    padding: 20px 0
+
+section#experience div.wrapper div.experience-holder div.projects div.single-project
+    width: 90%
+    margin: auto
+    background: white
+    color: $black
+    border-radius: 5px
+    padding: 15px
+
+section#experience div.wrapper div.experience-holder div.skill-holder
+    display: flex
+    flex-wrap: wrap
+    width: calc( 90% * 90 / 100)
+
+section#experience div.wrapper div.experience-holder div.skill-holder div.skill
+    display: flex
+    justify-content: center
+    align-items: center
+    color: white
+    padding: 5px 8px
+    border-radius: 50px
+    background: $red
+    margin-right: 10px
+    margin-top: 10px
+
+@media(min-width: $medium-width)
+    section#experience div.wrapper
+        flex-direction: row
+        align-items: flex-start
+        justify-content: flex-start
+
+    section#experience div.wrapper div.experience-holder
+        width: 48%
+        margin-top: 0

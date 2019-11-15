@@ -1,0 +1,30 @@
+@import 'src/app/app.component.sass'
+
+.form-holder
+    background: $black
+    width: calc(90% - 60px)
+    display: flex
+    flex-direction: column
+    margin: 100px auto 100px auto
+    padding: 30px
+    border-radius: 5px
+
+.form-holder h2, .form-holder p
+    color: white
+
+@media(min-width: $medium-width)
+    .form-holder form
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        justify-content: space-between
+        align-items: flex-start
+
+    .form-holder form .form-group
+        width: 48%
+    
+    .form-holder form .form-group:nth-last-child(2), .form-holder form .form-group:first-child
+        width: 100%
+    
+    .form-holder form .form-group:last-child
+        width: unset

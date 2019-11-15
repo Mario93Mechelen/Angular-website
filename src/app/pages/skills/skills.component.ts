@@ -18,6 +18,7 @@ export class SkillsComponent implements OnInit {
 
   public skills: Observable<TSkill[]>;
   public allSkills: Observable<TSkill[]>;
+  public skillsToShow: TSkill[];
   public currentTarget: string;
   public showForm: boolean;
   public errorInService: boolean = false;
@@ -141,7 +142,10 @@ export class SkillsComponent implements OnInit {
         shouldNotReturnValue: true
       }
     ]);
-    this.skills.subscribe(val => (this.allSkills = of([...val])));
+    this.skills.subscribe(val => {
+      this.allSkills = of([...val]);
+      this.skillsToShow = [...val];
+    });
     fromEvent(this.searchInput.nativeElement, "keyup")
       .pipe(
         map((event: any) => event.target.value),
@@ -156,11 +160,11 @@ export class SkillsComponent implements OnInit {
   public filterSkills = text => {
     this.allSkills.subscribe(
       (val: TSkill[]) =>
-        (this.skills = of([
+        (this.skillsToShow = [
           ...val.filter((skill: TSkill) =>
             skill.title.toLocaleLowerCase().includes(text.toLocaleLowerCase())
           )
-        ]))
+        ])
     );
   };
 
@@ -175,7 +179,7 @@ export class SkillsComponent implements OnInit {
     this.showForm = false;
   };
 
-  public submitForm = () => {
+  public submitForm = href => {
     if (!this.messageForm.errors && this.messageForm.touched) {
       try {
         const options = {
@@ -183,7 +187,7 @@ export class SkillsComponent implements OnInit {
         };
         this.$http
           .post(
-            "http://192.168.64.2/mailer/mailer.php",
+            "https://mariosamison.be/assets/mail/mailer.php",
             `fields=${JSON.stringify(this.messageForm.value)}`,
             options
           )
