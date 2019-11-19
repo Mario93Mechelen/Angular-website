@@ -1,8 +1,11 @@
 <?php
+    require_once './vendor/autoload.php';
+    use PHPMailer\PHPMailer\PHPMailer;    
     include('./generateEmail.php');
     header('Access-Control-Allow-Origin: *');
     header('Content-Type', "Application/json");
 	if(!empty($_POST['fields'])){
+        $mail = new PHPMailer;
         $fields = json_decode($_POST['fields']);
         $message = '';
         foreach($fields as $key => $field){
@@ -11,16 +14,16 @@
             if($key === 'firstname') $name = $field;
             if($key === 'subject') $subject = $field;
         };
-        $headers = "From: " . strip_tags($email) . "\r\n";
-        $headers .= "Reply-To: ". strip_tags('samisonmario@gmail.com') . "\r\n";
-        $headers .= "CC: samisonmario@gmail.com\r\n";
-        $headers .= "MIME-Version: 1.0\r\n";
-        $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-		// In case any of our lines are larger than 70 characters, we should use wordwrap()
-		$message = returnTemplate($fields);
+        $mail->setFrom($email, $name);
+        $mail->addAddress('samisonmario@gmail.com');
+        $mail->addAddress('marioql197@mariosamison.be');
+        $mail->addAddress('mario_samison@hotmail.com');
+        $mail->Subject = 'Mail from '.$name.': '.$email.' about '.$subject;
+        $mail->Body = returnTemplate($fields);
+        $mail->isHTML(true);
         //Send
         try{
-            mail('marioql197@mariosamison.be,samisonmario@gmail.com', 'Mail from '.$name.': '.$email.' about '.$subject, $message, $headers);
+            $mail->send();
             $feedback = [
                 "success" => true,
                 "code" => 200,
