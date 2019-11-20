@@ -15,9 +15,7 @@
             if($key === 'subject') $subject = $field;
         };
         $mail->setFrom($email, $name);
-        $mail->addAddress('samisonmario@gmail.com');
-        $mail->addAddress('marioql197@mariosamison.be');
-        $mail->addAddress('mario_samison@hotmail.com');
+        $mail->addAddress('info@mariosamison.be');
         $mail->Subject = 'Mail from '.$name.': '.$email.' about '.$subject;
         $mail->Body = returnTemplate($fields);
         $mail->isHTML(true);
