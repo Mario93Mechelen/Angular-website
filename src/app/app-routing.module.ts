@@ -6,7 +6,10 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
 export const routes: Routes = [
-  { path: "", component: HomePageComponent },
+  {
+    path: "",
+    component: HomePageComponent
+  },
   { path: "skills", component: SkillsComponent },
   { path: "experience", component: ExperienceComponent },
   { path: "contact", component: ContactComponent }

@@ -9,6 +9,7 @@
       <p>JavaScript is my core language, learn more about me.</p>
     </div>
     <app-button
+      (click)="handleClick($event)"
       [buttonLink]="buttonLink"
       [buttonText]="buttonText"
     ></app-button>

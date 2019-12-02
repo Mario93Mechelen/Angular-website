@@ -19,7 +19,7 @@ export class ButtonComponent implements OnInit {
   public returnLink = (event, isReturning) => {
     if (isReturning) {
       event.preventDefault();
-      this.handleClick.emit(event.target.href);
+      this.handleClick.emit(decodeURIComponent(event.target.href));
     }
   };
 }

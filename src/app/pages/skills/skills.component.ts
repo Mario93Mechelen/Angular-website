@@ -55,7 +55,7 @@ export class SkillsComponent implements OnInit {
       {
         title: "Angular",
         description: `I created an Angular-app that's using the Wordpress-api to display content. Also this site is made in Angular.`,
-        buttonLink: "/skills#angular",
+        buttonLink: "skills#angular",
         buttonText: "Ask me about an angular project",
         imageUrl: "assets/images/dev-logos/angular-icon-1.svg",
         imageAlt: "angular"
@@ -63,7 +63,7 @@ export class SkillsComponent implements OnInit {
       {
         title: "React",
         description: `By now, I'm a fluent React Engineer. Need me to build something? I'm the right guy for the job.`,
-        buttonLink: "/skills#react",
+        buttonLink: "skills#react",
         buttonText: "Ask me about a react project",
         imageUrl: "assets/images/dev-logos/redux.svg",
         imageAlt: "redux"
@@ -87,7 +87,7 @@ export class SkillsComponent implements OnInit {
       {
         title: "JavaScript",
         description: `You need me to do ANYTHING JavaScript-related? No problem, contact me.`,
-        buttonLink: "/skills#javascript",
+        buttonLink: "skills#javascript",
         buttonText: "Ask me about a JavaScript project",
         imageUrl: "assets/images/dev-logos/javascript-js-seeklogo.com.svg",
         imageAlt: "javascript"
@@ -111,7 +111,7 @@ export class SkillsComponent implements OnInit {
       {
         title: "Laravel",
         description: `Surprisingly, I'm also good with this PHP-framework.`,
-        buttonLink: "/skills#laravel",
+        buttonLink: "skills#laravel",
         buttonText: "Ask me about a laravel project",
         imageUrl: "assets/images/dev-logos/laravel-1.svg",
         imageAlt: "laravel"
@@ -127,7 +127,7 @@ export class SkillsComponent implements OnInit {
       {
         title: "Node.js",
         description: `You need a JavaScript backend? No problem, I can do that.`,
-        buttonLink: "/skills#nodejs",
+        buttonLink: "skills#nodejs",
         buttonText: "Ask me about a node.js project",
         imageUrl: "assets/images/dev-logos/nodejs-seeklogo.com.svg",
         imageAlt: "nodejs"

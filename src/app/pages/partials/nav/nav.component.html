@@ -36,11 +36,8 @@
               >
             </li>
             <li>
-              <a class="logo" [routerLink]="''" (click)="handleClick($event)"
-                ><img
-                  src="assets/images/logo-white.svg"
-                  (click)="$event.stopPropagation()"
-                  alt="logo"
+              <a class="logo" (click)="handleClick($event)" [routerLink]="''"
+                ><img src="assets/images/logo-white.svg" alt="logo"
               /></a>
             </li>
           </ng-template>

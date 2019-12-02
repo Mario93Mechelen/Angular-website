@@ -10,8 +10,8 @@ import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { NavComponent } from "./pages/partials/nav/nav.component";
 import { HttpClientModule } from "@angular/common/http";
 import { SkillsComponent } from "./pages/skills/skills.component";
-import { ExperienceComponent } from './pages/experience/experience.component';
-import { ContactComponent } from './pages/contact/contact.component';
+import { ExperienceComponent } from "./pages/experience/experience.component";
+import { ContactComponent } from "./pages/contact/contact.component";
 
 @NgModule({
   declarations: [

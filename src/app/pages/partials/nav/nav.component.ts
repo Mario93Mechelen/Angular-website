@@ -1,3 +1,4 @@
+import { Router } from "@angular/router";
 import { routes } from "./../../../app-routing.module";
 import { Component, OnInit, Input } from "@angular/core";
 import { Route } from "@angular/compiler/src/core";
@@ -10,10 +11,17 @@ import { Route } from "@angular/compiler/src/core";
 export class NavComponent implements OnInit {
   public routes: Route[] = routes;
   public placeLogo: number = 1;
-  @Input() active: string = "home";
+  public active: string = "home";
   @Input() hovered: string;
   @Input() menuIsVisible: boolean = false;
-
+  constructor(private router: Router) {
+    router.events.subscribe((val: any) => {
+      // see also
+      if (val && val.url) {
+        this.active = val.url.substring(1, val.url.length);
+      }
+    });
+  }
   ngOnInit() {
     this.active = window.location.href.substring(
       window.location.href.lastIndexOf("/") + 1,
@@ -23,10 +31,14 @@ export class NavComponent implements OnInit {
 
   public handleClick = e => {
     e.preventDefault();
-    this.active = e.target.href.substring(
-      e.target.href.lastIndexOf("/") + 1,
-      e.target.href.length
-    );
+    if (e.target.href) {
+      this.active = e.target.href.substring(
+        e.target.href.lastIndexOf("/") + 1,
+        e.target.href.length
+      );
+    } else {
+      this.active = "";
+    }
     this.menuIsVisible = false;
   };
 
